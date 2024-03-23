@@ -1,0 +1,11 @@
+FROM vaultwarden/server:latest
+
+ARG VAULTWARDEN_DATA
+
+EXPOSE 80
+
+COPY $VAULTWARDEN_DATA /data
+
+ENV I_REALLY_WANT_VOLATILE_STORAGE=true
+
+ENTRYPOINT ["/vaultwarden"]
